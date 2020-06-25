@@ -1,0 +1,35 @@
+# query to get all blog posts in JSON format with data needed for WP import
+query AllBlogPosts {
+  allMdx(
+    sort: { order: ASC, fields: [frontmatter___date, fields___slug] }
+    limit: 3 # increase when not testing
+    filter: {
+      fileAbsolutePath: { ne: null }
+      frontmatter: { draft: { ne: true } }
+      fields: { section: { eq: "blog" } }
+    }
+  ) {
+    nodes {
+      fields {
+        slug
+        excerpt
+      }
+      frontmatter {
+        author {
+          id
+        }
+        date
+        title
+        canonicalLink
+        publishedAt
+        tags
+        image {
+          id
+          relativePath
+        }
+        imageTitle
+      }
+      rawBody
+    }
+  }
+}
