@@ -14,7 +14,7 @@ import json
 
 basePath = "./../../../../../kyle/Github/wordpress-scripts"
 
-with open('./../../../../../kyle/Github/wordpress-scripts/single-post.json') as f:
+with open('./../../../../../kyle/Github/wordpress-scripts/posts.json') as f:
     posts = json.load(f)
 
 for post in posts['data']['allMdx']['nodes']:
@@ -27,8 +27,10 @@ for post in posts['data']['allMdx']['nodes']:
     seo_title = post['frontmatter']['seoTitle']
     canonical_link = post['frontmatter']['canonicalLink']
     published_at = post['frontmatter']['publishedAt']
-    content = post['rawBody']
-    tags = ', '.join(post['frontmatter']['tags'])
+    # content = post['rawBody']
+    tags = post['frontmatter']['tags']
+    if tags:
+        tags = ', '.join(tags)
 
     print(f'Processing post {title}...')
 
