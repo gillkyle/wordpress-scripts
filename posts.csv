@@ -1,0 +1,49 @@
+fields_slug,fields_excerpt,frontmatter_author_id,frontmatter_date,frontmatter_title,frontmatter_canonicalLink,frontmatter_publishedAt,frontmatter_tags,frontmatter_image_id,frontmatter_image_relativePath,frontmatter_imageTitle,rawBody
+/blog/gatsbygram-case-study/,,Kyle Mathews,2017-03-09T00:00:00.000Z,Gatsbygram Case Study,,,,35a3268a-c606-5ebe-baa3-917fc384b87b,blog/gatsbygram-case-study/ui-and-code.png,Gatsbygram,"---
+title: Gatsbygram Case Study
+date: 2017-03-09
+author: ""Kyle Mathews""
+image: ""ui-and-code.png""
+imageTitle: Gatsbygram
+---
+
+[Gatsbygram](https://gatsbygram.gatsbyjs.org) is a clone of Instagram built with
+Gatsby v1.
+
+The
+[source code for Gatsbygram](https://github.com/gatsbyjs/gatsby/tree/master/examples/gatsbygram)
+lives in the Gatsby monorepo. See the instructions at the end for how to start
+playing with the code!
+
+<div>
+  <video controls=""controls"" autoplay=""true"" loop=""true"">
+    <source type=""video/mp4"" src=""/gatsbygram.mp4"" />
+    <p>Your browser does not support the video element.</p>
+  </video>
+</div>
+
+## What is Gatsby
+
+Gatsby is a JavaScript web framework that lets you build fast, dynamic,
+mobile-ready websites _without_ an advanced degree in JavaScript wizardry.
+
+It combines the fast performance of static websites with the powerful
+abstractions, tools, and client capabilities of the React.js world.
+"
+/blog/gatsby-v1/,"Gatsby is your friendly, blazing fast static site generator for React. And after nearly a year of research, prototyping, and testing, Gatsby v1 is ready for action.",Kyle Mathews,2017-07-06T00:00:00.000Z,Announcing Gatsby 1.0.0 🎉🎉🎉,,,,6ac8f232-9cb4-503a-9762-5140a3fabc49,blog/images/container-ship-leaving.jpg,,"---
+title: ""Announcing Gatsby 1.0.0 🎉🎉🎉""
+date: 2017-07-06
+author: ""Kyle Mathews""
+image: ""images/container-ship-leaving.jpg""
+showImageInArticle: false
+excerpt: Gatsby is your friendly, blazing fast static site generator for React. And after nearly a year of research, prototyping, and testing, Gatsby v1 is ready for action.
+---
+
+Gatsby is your friendly, blazing fast static site generator for React. And after
+nearly a year of research, prototyping, and testing, Gatsby v1 is ready for
+action.
+
+Static site generators offer many benefits over traditional dynamic website
+frameworks — _better performance, higher security, lower cost of scaling, and a
+better developer experience._
+"
