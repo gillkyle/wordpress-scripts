@@ -18,8 +18,9 @@ query AllBlogPosts {
         author {
           id
         }
-        date
+        date(formatString: "YYYY-MM-DD")
         title
+        seoTitle
         canonicalLink
         publishedAt
         tags
