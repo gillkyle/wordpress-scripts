@@ -17,6 +17,8 @@ basePath = "./../../../../../kyle/Github/wordpress-scripts"
 with open('./../../../../../kyle/Github/wordpress-scripts/single-post.json') as f:
     posts = json.load(f)
 
+posts_created = 0
+
 for post in posts['data']['allMdx']['nodes']:
     # access and normalize the data from JSON
     excerpt = post['fields']['excerpt']
@@ -47,7 +49,7 @@ for post in posts['data']['allMdx']['nodes']:
     # create the post by instantiating the wp command in the shell, passing in the proper variables
     try:
         post_id = subprocess.check_output(
-            f'wp post create --post_author={author_id} --post_date={date} --post_status="publish" --post_title="{title}" --post_excerpt="{excerpt}" --tags_input="{tags}" --published_at="{published_at}" --porcelain', shell=True, universal_newlines=True).strip()
+            f'wp post create --post_author={author_id} --post_date={date} --post_status="publish" --post_title="{title}" --post_excerpt="{excerpt}" --tags_input="{tags}" --published_at="{published_at}" --post_name="{slug}" --porcelain', shell=True, universal_newlines=True).strip()
         print(f'The post id is {post_id}')
     except:
         print('Something failed creating the base post')
@@ -62,5 +64,6 @@ for post in posts['data']['allMdx']['nodes']:
     if canonical_link:
         os.system(
             f'wp post meta set {post_id} canonical_link "{canonical_link}"')
+    posts_created += 1
 
-print("done")
+print(f'{posts_created} successfully created.')
