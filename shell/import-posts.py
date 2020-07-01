@@ -14,7 +14,7 @@ import json
 
 basePath = "./../../../../../kyle/Github/wordpress-scripts"
 
-with open('./../../../../../kyle/Github/wordpress-scripts/single-post.json') as f:
+with open('./../../../../../kyle/Github/wordpress-scripts/posts.json') as f:
     posts = json.load(f)
 
 posts_created = 0
