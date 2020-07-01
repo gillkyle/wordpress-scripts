@@ -14,7 +14,7 @@ import json
 
 basePath = "./../../../../../kyle/Github/wordpress-scripts"
 
-with open('./../../../../../kyle/Github/wordpress-scripts/posts.json') as f:
+with open('./../../../../../kyle/Github/wordpress-scripts/single-post.json') as f:
     posts = json.load(f)
 
 for post in posts['data']['allMdx']['nodes']:
@@ -40,10 +40,17 @@ for post in posts['data']['allMdx']['nodes']:
         f"awk -v author='{author}' '{{ if($2 == author) {{ print $1 }} }}' './../../../../../kyle/Github/wordpress-scripts/shell/authors.txt'", shell=True, universal_newlines=True).strip()
     print(f'Author ID found for "{author}": {author_id}')
 
+    if not author_id:
+        print(
+            f'WARNING Failed to find an author {author} for {title}, verify manually that an author gets assigned')
+
     # create the post by instantiating the wp command in the shell, passing in the proper variables
-    post_id = subprocess.check_output(
-        f'wp post create --post_author={author_id} --post_date={date} --post_status="publish" --post_title="{title}" --post_excerpt="{excerpt}" --tags_input="{tags}" --published_at="{published_at}" --porcelain', shell=True, universal_newlines=True).strip()
-    print(f'The post id is {post_id}')
+    try:
+        post_id = subprocess.check_output(
+            f'wp post create --post_author={author_id} --post_date={date} --post_status="publish" --post_title="{title}" --post_excerpt="{excerpt}" --tags_input="{tags}" --published_at="{published_at}" --porcelain', shell=True, universal_newlines=True).strip()
+        print(f'The post id is {post_id}')
+    except:
+        print('Something failed creating the base post')
 
     # add meta fields that come from ACF
     if seo_title:
