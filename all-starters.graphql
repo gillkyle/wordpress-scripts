@@ -1,0 +1,23 @@
+# https://gatsby-4636712831.gtsb.io/___graphql?query=%7B%0A%20%20allStartersYaml%20%7B%0A%20%20%20%20totalCount%0A%20%20%20%20nodes%20%7B%0A%20%20%20%20%20%20id%0A%20%20%20%20%20%20url%0A%20%20%20%20%20%20repo%0A%20%20%20%20%20%20tags%0A%20%20%20%20%20%20features%0A%20%20%20%20%20%20description%0A%20%20%20%20%20%20fields%20%20%7B%0A%20%20%20%20%20%20%20%20featured%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20childScreenshot%20%7B%0A%20%20%20%20%20%20%20%20id%0A%20%20%20%20%20%20%20%20screenshotFile%20%7B%0A%20%20%20%20%20%20%20%20%20%20publicURL%20%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A
+{
+  allStartersYaml {
+    totalCount
+    nodes {
+      id
+      url
+      repo
+      tags
+      features
+      description
+      fields {
+        featured
+      }
+      childScreenshot {
+        id
+        screenshotFile {
+          publicURL
+        }
+      }
+    }
+  }
+}
