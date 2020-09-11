@@ -9,8 +9,7 @@ import json
 # via "Open Site Shell". It is run like so (matching your local machine's path to the clone):
 # $ ./../../../../../kyle/Github/wordpress-scripts/shell/import-starters.py
 
-# You can run system/wp commands like this:
-# os.system('wp user list')
+# wp post list --format=json --fields=ID,post_title,post_name,post_date,post_status --post_type=starters
 
 basePath = "./../../../../../kyle/Github/wordpress-scripts"
 
@@ -34,8 +33,9 @@ for wp_starter in wp_starters:
             # check if site has screenshot
             if starter["childScreenshot"] is not None:
                 # get image path
-                path = starter["childScreenshot"]["screenshotFile"]["publicURL"]
-                image_url = "https://gatsbyjs.org" + path
+                path = starter["childScreenshot"]["screenshotFile"]["publicURL"].split(
+                    "/")[3]
+                image_url = "./../../../../../kyle/Github/wordpress-scripts/local-images/" + path
 
                 # upload image and get ID
                 image_id = subprocess.check_output(
